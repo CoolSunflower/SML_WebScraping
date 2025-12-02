@@ -60,6 +60,7 @@ export class BaseScraper {
 
     for (const block of sortedBlocks) {
       // Check if we've reached already-processed content
+      // NOTE: This assumes that newest content appears first in sorted order so implement/override the sort function accordingly 
       if (this.shouldStop(block, lastState)) {
         console.log(`[${this.name}] Reached already-processed content, stopping`);
         break;

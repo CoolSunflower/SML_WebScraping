@@ -31,5 +31,5 @@ Goal is to promote function reuse wherever possible.
 
 For each website it would be preferrable to do scraping via just a GET request, but if its not possible then headless browsers may be used eg Playwright.
 
-# NOTE: for development
+# NOTE: for development (See DevelopmentWorkflow.md)
 we will create a testing script in which test fetching the website content with a get request and via headless browsers and save it to a file and complete the rest of the website parsing code locally with that fetched content. This will tell us the fetching and parsing logic needed for the website and we will merge everything and test it once and also write a test script (just what I thought could obviously be made better).
