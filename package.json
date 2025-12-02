@@ -1,0 +1,16 @@
+{
+  "name": "web-scraping",
+  "version": "1.0.0",
+  "description": "Web scraping system with brand classification",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "scrape": "node src/index.js --run"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.3",
+    "cheerio": "^1.0.0-rc.12",
+    "playwright": "^1.40.0"
+  }
+}
