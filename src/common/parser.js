@@ -1,11 +1,5 @@
 /**
  * Parser module for brand classification
- * 
- * This is a dummy implementation. The actual implementation will use
- * the grammar defined in spec.md:
- * S -> A AND A
- * A -> A OR A | A NEAR/N A | "keyword" | NOT CONTAINS B
- * B -> ["keyword"]
  */
 
 /**
