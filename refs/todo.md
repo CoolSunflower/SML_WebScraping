@@ -1,5 +1,5 @@
 Web Scraping Logic needed for:
-1) https://patientsknowbest.com/news/
+1) https://patientsknowbest.com/news/ DONE
 2) https://blog.patientsknowbest.com/
 3) https://www.askapatient.com/news/pharmnews.asp
 4) https://community.patient.info/ (right side latest posts)
