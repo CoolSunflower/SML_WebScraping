@@ -1,0 +1,1 @@
+- Add automatic logs in case of failure of extraction of articles from index page, clear indicator that the structure of the website has been changed.

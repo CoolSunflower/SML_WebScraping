@@ -104,12 +104,37 @@ const siteConfigs = {
     baseUrl: 'https://blog.patientsknowbest.com/'
   },
 
+  'askapatient': {
+    index: {
+      blockSelector: 'p[style*="border-bottom"][style*="margin-bottom"]',
+      getId: ($el) => $el.find('a').first().attr('href'),
+      getUrl: ($el) => $el.find('a').first().attr('href'),
+      getTitle: ($el) => $el.find('a').first().text().trim(),
+      getDate: ($el) => $el.find('span').text().trim(),
+    },
+    article: {
+      removeSelectors: 'script, header, nav',
+      getTitle: ($) => $('article.news-article h1').first().text().trim(),
+      getContent: ($) => {
+        const paragraphs = [];
+        $('article.news-article .article-main p').each((i, el) => {
+          const text = $(el).text().trim();
+          if (text && text.length > 10) {
+            paragraphs.push(text);
+          }
+        });
+        return paragraphs.join('\n\n');
+      }
+    },
+    baseUrl: 'https://www.askapatient.com/news/pharmnews.asp'
+  },
+
   // Add more site configs as needed:
   // 'another-site': { ... }
 };
 
 // ============================================================
-// PARSING FUNCTIONS (MIGHT ALSO NEED EDITS)
+// PARSING FUNCTIONS (MIGHT ALSO NEED EDITS FOR TESTING == UPDATED CODE OF SCRAPER)
 // ============================================================
 
 // Parse index page and extract blocks
