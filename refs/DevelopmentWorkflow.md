@@ -41,6 +41,8 @@ Open the saved HTML in a browser or text editor. Find:
 | Date | `.date`, `time`, `.published` |
 | Content (on article page) | `.entry-content p`, `.article-body` |
 
+To verify this works add a new entry in parse-test in variable `siteConfigs` with appropriate tags extracted from Inspect Element and verify by running using: `node test/parse-test.js <siteKey>` to ensure output matches what you expect from values on the website.
+
 ---
 
 ## Step 3: Create the Scraper
