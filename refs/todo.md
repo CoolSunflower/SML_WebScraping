@@ -1,7 +1,7 @@
 Web Scraping Logic needed for:
 1) https://patientsknowbest.com/news/ DONE
 2) https://blog.patientsknowbest.com/ DONE
-3) https://www.askapatient.com/news/pharmnews.asp
+3) https://www.askapatient.com/news/pharmnews.asp DONE
 4) https://community.patient.info/ (right side latest posts)
 5) https://www.jbjs.org/pap.php?j=oa (like once per day)
 -------

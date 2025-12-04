@@ -18,11 +18,11 @@ node test/fetch-test.js <site-name> "<index-url>"
 
 **Example:**
 ```bash
-node test/fetch-test.js myblog "https://myblog.com/news/"
+node test/fetch-test.js example-blog "https://example.com/blog" --article "https://example.com/blog/post-1"
 
 OR
 
-node test/fetch-test.js example-blog https://example.com/blog --article https://example.com/blog/post-1
+node test/fetch-test.js myblog "https://myblog.com/news/"
 ```
 
 This saves HTML files to `test/data/<site-name>/`:
@@ -46,6 +46,10 @@ Open the saved HTML in a browser or text editor. Find:
 | Content (on article page) | `.entry-content p`, `.article-body` |
 
 To verify this works add a new entry in parse-test in variable `siteConfigs` with appropriate tags extracted from Inspect Element and verify by running using: `node test/parse-test.js <siteKey>` to ensure output matches what you expect from values on the website.
+
+Tips: 
+1) For identifying block containers in index use inspect element
+2) For article pages, goal is to find most specific set of nested elements and class tags such that we can get the title and content parts. In these chains try to include only what you think may remain constant even if the site gets updated. Use removeSelectors for elements that occur inside those specific nested elements if they are intefering. 
 
 ---
 

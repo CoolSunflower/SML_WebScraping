@@ -15,7 +15,7 @@
 // ============================================================
 // CONFIGURE: Import the scraper to test
 // ============================================================
-import scraper from '../src/scrapers/sites/2.js';
+import scraper from '../src/scrapers/sites/3.js';
 // ============================================================
 
 import { clearState, getState } from '../src/common/state.js';
@@ -166,6 +166,10 @@ async function runTest() {
   All tests passed! 
 `);
   console.log('='.repeat(70) + '\n');
+
+  // exit the headless browser if used
+  if (scraper.useHeadless) {
+  }
 }
 
 /**
