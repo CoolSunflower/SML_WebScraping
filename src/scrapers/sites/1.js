@@ -34,17 +34,11 @@ export class PatientsKnowBestNewsScraper extends BaseScraper {
       // Get date
       const date = $block.find('.date').text().trim();
       
-      // Get excerpt for quick reference
-      const excerpt = $block.find('.excerpt').text()
-        .replace(/Read More$/, '')
-        .trim();
-
       if (url && title) {
         blocks.push({
           url,
           title,
           date,
-          excerpt
         });
       }
     });

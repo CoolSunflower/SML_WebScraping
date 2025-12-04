@@ -15,7 +15,7 @@
 // ============================================================
 // CONFIGURE: Import the scraper to test
 // ============================================================
-import scraper from '../src/scrapers/sites/1.js';
+import scraper from '../src/scrapers/sites/2.js';
 // ============================================================
 
 import { clearState, getState } from '../src/common/state.js';

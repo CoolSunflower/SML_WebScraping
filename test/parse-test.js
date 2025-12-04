@@ -89,8 +89,7 @@ const siteConfigs = {
     },
     article: {
       removeSelectors: 'script, style, nav, footer, .sidebar, .footer-widgets-wrap, .sharedaddy',
-      // contentSelector: '.entry-content',
-      getTitle: ($) => $('article header').first().text().trim(),
+      getTitle: ($) => $('article header').first().text().trim(), // just for testing
       getContent: ($) => {
         const paragraphs = [];
         $('article p, article h1').each((i, el) => {
