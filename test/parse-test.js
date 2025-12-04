@@ -41,7 +41,7 @@ const siteConfigs = {
       // Elements to remove before extracting text
       removeSelectors: 'script, style, nav, header, footer, .sidebar, .comments, .related, .advertisement',
       // Main content selector
-      contentSelector: 'article, .article-body, .post-content, .entry-content, main',
+      // contentSelector: 'article, .article-body, .post-content, .entry-content, main',
       getTitle: ($) => $('h1').first().text().trim(),
       getContent: ($) => {
         // Remove unwanted elements
@@ -60,11 +60,10 @@ const siteConfigs = {
       getUrl: ($el) => $el.find('a.image').attr('href') || $el.find('a.title').attr('href'),
       getTitle: ($el) => $el.find('a.title').text().trim(),
       getDate: ($el) => $el.find('.date').text().trim(),
-      getExcerpt: ($el) => $el.find('.excerpt').text().replace(/Read More$/, '').trim(),
     },
     article: {
       removeSelectors: 'script, style, nav, header, footer, .sidebar, .jp-relatedposts, .x-colophon',
-      contentSelector: '.entry-content',
+      // contentSelector: '.entry-content',
       getTitle: ($) => $('.entry-content .x-text-content-text-primary').first().text().trim(),
       getContent: ($) => {
         const paragraphs = [];
@@ -78,6 +77,32 @@ const siteConfigs = {
       }
     },
     baseUrl: 'https://patientsknowbest.com'
+  },
+
+  'patientsknowbest-blog': {
+    index: {
+      blockSelector: '.post-column',
+      getId: ($el) => $el.find('a').first().attr('href') || $el.find('header a').attr('href'),
+      getUrl: ($el) => $el.find('a').first().attr('href') || $el.find('header a').attr('href'),
+      getTitle: ($el) => $el.find('header a').text().trim(),
+      getDate: ($el) => $el.find('.entry-date').text().trim(),
+    },
+    article: {
+      removeSelectors: 'script, style, nav, footer, .sidebar, .footer-widgets-wrap, .sharedaddy',
+      // contentSelector: '.entry-content',
+      getTitle: ($) => $('article header').first().text().trim(),
+      getContent: ($) => {
+        const paragraphs = [];
+        $('article p, article h1').each((i, el) => {
+          const text = $(el).text().trim();
+          if (text && text.length > 10) {
+            paragraphs.push(text);
+          }
+        });
+        return paragraphs.join('\n\n');
+      }
+    },
+    baseUrl: 'https://blog.patientsknowbest.com/'
   },
 
   // Add more site configs as needed:
@@ -119,7 +144,7 @@ function parseIndex($, config) {
 
 // Parse article page and extract content
 function parseArticle($, config) {
-  const { removeSelectors, contentSelector, getTitle, getContent } = config.article;
+  const { removeSelectors, getTitle, getContent } = config.article;
 
   // Remove unwanted elements
   if (removeSelectors) {

@@ -19,6 +19,10 @@ node test/fetch-test.js <site-name> "<index-url>"
 **Example:**
 ```bash
 node test/fetch-test.js myblog "https://myblog.com/news/"
+
+OR
+
+node test/fetch-test.js example-blog https://example.com/blog --article https://example.com/blog/post-1
 ```
 
 This saves HTML files to `test/data/<site-name>/`:
