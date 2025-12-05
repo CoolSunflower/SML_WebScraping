@@ -129,6 +129,26 @@ const siteConfigs = {
     baseUrl: 'https://www.askapatient.com/news/pharmnews.asp'
   },
 
+  'emconsulte': {
+    index: {
+      blockSelector: '.c-listarticles a',
+      getId: ($el) => $el.attr('href'),
+      getUrl: ($el) => $el.attr('href'),
+      getTitle: ($el) => $el.find('.c-listarticles__item__title').text().trim(),
+      getDate: ($el) => $el.find('.c-listarticles__item__date').text().trim(),
+    },
+    article: {
+      removeSelectors: 'script, nav',
+      getTitle: ($) => {
+        const h1 = $('#article_corps h1').first().clone(); // clone so we don't modify DOM
+        h1.find('span').remove(); // remove the date span
+        return h1.text().trim();
+      },
+      getContent: ($) => $('#pane_resume').text().trim(),
+    },
+    baseUrl: 'https://www.em-consulte.com/'
+  },
+
   // Add more site configs as needed:
   // 'another-site': { ... }
 };

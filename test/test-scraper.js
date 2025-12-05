@@ -19,7 +19,7 @@ import scraper from '../src/scrapers/sites/3.js';
 // ============================================================
 
 import { clearState, getState } from '../src/common/state.js';
-import { fetchPage } from '../src/utils/fetcher.js';
+import { fetchPage, closeBrowser } from '../src/utils/fetcher.js';
 import * as cheerio from 'cheerio';
 
 // Limit articles to fetch during testing (to avoid long waits)
@@ -169,6 +169,7 @@ async function runTest() {
 
   // exit the headless browser if used
   if (scraper.useHeadless) {
+    closeBrowser();
   }
 }
 
