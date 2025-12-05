@@ -121,13 +121,13 @@ export default new MyBlogScraper();
 
 ## Step 4: Test the Scraper
 
-### Quick test with saved HTML:
+### Quick test with live HTML fetching:
 ```bash
 node test/test-scraper.js
 // CHANGE IMPORT AT TOP OF THIS FILE TO THE NEWLY CREATED SCRAPER
 ```
 
-### Live test (fetches from actual website):
+### Test just the index parser:
 ```bash
 node -e "
   import s from './src/scrapers/sites/1.js'; // UPDATE THIS LINE
@@ -141,11 +141,6 @@ node -e "
   console.log('Found', blocks.length, 'blocks');
   blocks.slice(0,3).forEach(b => console.log('-', b.title));
 "
-```
-
-### Full scraper run:
-```bash
-node src/index.js --run
 ```
 
 ## Example:
