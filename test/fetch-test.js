@@ -62,6 +62,19 @@ async function fetchWithHeadless(url, timeout = 30000) {
   }
 }
 
+async function fetchWithPuppeteer(url, timeout = 30000) {
+  const puppeteer = require('puppeteer');
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+
+  try {
+    await page.goto('https://example.com');
+    
+  } finally {
+    await browser.close();    
+  }
+}
+
 // Save content to file
 async function saveToFile(filePath, content) {
   await mkdir(dirname(filePath), { recursive: true });

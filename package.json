@@ -9,8 +9,9 @@
     "scrape": "node src/index.js --run"
   },
   "dependencies": {
-    "node-cron": "^3.0.3",
     "cheerio": "^1.0.0-rc.12",
-    "playwright": "^1.40.0"
+    "node-cron": "^3.0.3",
+    "playwright": "^1.40.0",
+    "puppeteer": "^24.32.0"
   }
 }
